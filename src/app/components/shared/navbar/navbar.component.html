@@ -12,15 +12,19 @@
       <li class="nav-item ">
         <!-- icon in nabvar from bootstrap -->
         <a class="navbar-brand" href="#">
-          <img src="./../../../../assets/img/A-64.png" width="30" height="30" alt="">
+          <img src="./assets/img/A-64.png" width="30" height="30" alt="">
         </a>
 
       </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item" routerLinkActive="active"> <!-- routerLinkActive puts that class only when the element is selected-->
+        <a class="nav-link" [routerLink]="['home']">Home </a> <!-- the name in [] is the one in the routes archive-->
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['about']">About</a>
+      </li>
+
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['heroes']">Heroes</a>
       </li>
       <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
