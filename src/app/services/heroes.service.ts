@@ -68,6 +68,20 @@ export class HeroesService {
   getHeroe(idx: string) {
     return this.heroes[idx];
   }
+
+  // search functionm:
+  buscarHeroes(search: string): Heroe[] {
+    const heroesArr: Heroe[] = []; // empty array
+    search = search.toLowerCase(); // convert it to lowercase
+
+    for (const heroe of this.heroes) { // new variable
+      const nombre = heroe.nombre.toLowerCase(); // access the name of the hero, put it in lowercase to match the search
+      if (nombre.indexOf (search) >= 0) { // if search returns more than 0
+        heroesArr.push(heroe); // push what was found into the empty array
+      }
+    }
+    return heroesArr;
+  }
 }
 
 // interface to prevent creating heroes with a different set of keys:

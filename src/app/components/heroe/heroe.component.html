@@ -1,4 +1,5 @@
-<h1 class="animated fadeIn"> {{heroe.nombre}} <small>{{heroe.aparicion}}</small> </h1>
+<h1 class="animated fadeIn"> {{heroe.nombre | uppercase}} - <small> Año de aparición: {{heroe.aparicion | date: 'y'}}</small> </h1> 
+<!-- pipes to modify the data visually. date has parameters, they can be written after : -->
 
 <hr>
 <div class="row animated fadeIn fast">

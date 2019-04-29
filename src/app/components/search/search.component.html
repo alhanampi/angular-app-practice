@@ -1,0 +1,16 @@
+<h1>Buscador: <small>{{search}}</small></h1>
+<hr>
+
+<div class="card-columns">
+  <div class="card animated fadeIn fast" *ngFor="let heroe of heroes; let i = index">
+    <img class="card-img-top img-fluid" [src]="heroe.img" [alt]="heroe.nombre"> 
+    <div class="card-block">
+      <h5 class="card-title">{{heroe.nombre}}</h5>
+      <p class="card-text">{{heroe.bio}}</p>
+      <p class="card-text"><small class="text-muted">{{heroe.aparicion}}</small></p>
+    
+    </div>
+  </div>
+
+ 
+</div>                                     
