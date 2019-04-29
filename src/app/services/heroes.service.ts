@@ -63,6 +63,11 @@ export class HeroesService {
   getHeroes(): Heroe[] {
     return this.heroes;
   }
+
+  // to get only one for the hero.component:
+  getHeroe(idx: string) {
+    return this.heroes[idx];
+  }
 }
 
 // interface to prevent creating heroes with a different set of keys:
