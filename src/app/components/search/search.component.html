@@ -1,16 +1,18 @@
 <h1>Buscador: <small>{{search}}</small></h1>
 <hr>
 
-<div class="card-columns">
-  <div class="card animated fadeIn fast" *ngFor="let heroe of heroes; let i = index">
-    <img class="card-img-top img-fluid" [src]="heroe.img" [alt]="heroe.nombre"> 
-    <div class="card-block">
-      <h5 class="card-title">{{heroe.nombre}}</h5>
-      <p class="card-text">{{heroe.bio}}</p>
-      <p class="card-text"><small class="text-muted">{{heroe.aparicion}}</small></p>
-    
+<div class="row animated fadeIn fast" *ngIf="heroes.length == 0">
+
+  <div class="col-md-12">
+    <div class="alert alert-danger" role="alert">
+      No existen resultados para: {{search}}
     </div>
   </div>
+</div>
 
- 
-</div>                                     
+<div class="card-columns">
+  <app-heroe-tarjeta [heroe]="foo" [index]="foo.idx" *ngFor="let foo of heroes">
+  </app-heroe-tarjeta>
+
+
+</div>

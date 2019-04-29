@@ -2,20 +2,16 @@
 <hr>
 
 <div class="card-columns">
-  <div class="card animated fadeIn fast" *ngFor="let heroe of heroes; let i = index">
-    <img class="card-img-top img-fluid" [src]="heroe.img" [alt]="heroe.nombre"> <!-- [src] has the same effect as {{heroe.img}}-->
-    <div class="card-block">
-      <h5 class="card-title">{{heroe.nombre}}</h5>
-      <p class="card-text">{{heroe.bio}}</p>
-      <p class="card-text"><small class="text-muted">{{heroe.aparicion}}</small></p>
-    
-    <!-- button: two different ways of doing it: -->
-    <!-- option 1: -->
-    <button (click)="verHeroe(i)" type="button" class="btn btn-outline-success btn-block">Ver más...</button>
-    <!-- option 2: -->
-    <!-- <a [routerLink]="['/heroe/i']" class="btn btn-outline-success btn-block"> Ver más </a> without /, it doesn't work -->
-    </div>
-  </div>
+
+  <!-- [heroe] is the property I recieve from component. "heroe" is the one that's created in the for. Same for index and i. It's listening to (selectedHero), that's why it's not a (click)  -->
+  <app-heroe-tarjeta 
+    [heroe]="heroe" 
+    [index]="i" 
+    (selectedHero)="verHeroe( $event )"
+    *ngFor="let heroe of heroes; let i = index">
 
 
-</div>                                     
+  </app-heroe-tarjeta>
+
+
+</div>

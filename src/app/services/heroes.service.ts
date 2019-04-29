@@ -53,12 +53,23 @@ export class HeroesService {
           img: 'assets/img/wolverine.png',
           aparicion: '1974-11-01',
           casa: 'Marvel'
-        }
+        },
+        {
+          nombre: 'Capitán America',
+          bio: 'El Capitán Steven "Steve" Grant Rogers es un veterano de la Segunda Guerra Mundial que se convirtió en el primer superhéroe del mundo. Después de que el programa secreto del Súper Soldado transformó al frágil Steven Rogers en el poderoso y heroico Capitán América, sus increíbles hazañas en la Segunda Guerra Mundial lo hicieron una leyenda viviente. Rogers ayudó a los Aliados a ganar la guerra atacando varias instalaciones de HYDRA, pero se estrelló en el Ártico durante su última misión. Cuando su cuerpo fue encontrado, Rogers despertó en la época actual, habiendo permanecido casi 67 años congelado.',
+          img: 'assets/img/cap.png',
+          aparicion: '1941-03-01',
+          casa: 'Marvel'
+        },
+        {nombre: 'Green Arrow',
+        bio: 'Su nombre real es Oliver Jonas Queen, un empresario adinerado y propietario de Queen Industries que también es una celebridad muy conocida en Star City. A veces se muestra vestido como el personaje de Robin Hood, Green Arrow es un arquero que usa sus habilidades para combatir el crimen en sus ciudades natales de Star City y Seattle, así como junto a sus compañeros superhéroes como miembro de la Liga de la Justicia. Implementa una gama de flechas de truco con varias funciones especiales, como pegamento, punta de explosivo, gancho de agarre, granada flash, gas lacrimógeno e incluso flechas de kryptonita para usar en una variedad de situaciones especiales.',
+        img: 'assets/img/green.png',
+        aparicion: '1941-03-01',
+        casa: 'DC'
+      },
       ];
 
-    constructor() {
-    console.log('service works');
-  }
+    constructor() {}
   // heroes is private, so there has to be a public property to access it. This method is for that, it returns the private heroes:
   getHeroes(): Heroe[] {
     return this.heroes;
@@ -74,9 +85,12 @@ export class HeroesService {
     const heroesArr: Heroe[] = []; // empty array
     search = search.toLowerCase(); // convert it to lowercase
 
-    for (const heroe of this.heroes) { // new variable
-      const nombre = heroe.nombre.toLowerCase(); // access the name of the hero, put it in lowercase to match the search
+// tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < this.heroes.length; i++) { // new variable
+      let heroe = this.heroes[i];
+      let nombre = heroe.nombre.toLowerCase(); // access the name of the hero, put it in lowercase to match the search
       if (nombre.indexOf (search) >= 0) { // if search returns more than 0
+        heroe.idx = i;
         heroesArr.push(heroe); // push what was found into the empty array
       }
     }
@@ -91,4 +105,5 @@ export interface Heroe {
   img: string;
   aparicion: string;
   casa: string;
+  idx?: number;
 }

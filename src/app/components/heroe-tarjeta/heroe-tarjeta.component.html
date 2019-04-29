@@ -1,0 +1,15 @@
+<div class="card animated fadeIn fast" >
+    <img class="card-img-top img-fluid" [src]="heroe.img" [alt]="heroe.nombre"> <!-- [src] has the same effect as {{heroe.img}}-->
+    <div class="card-block">
+      <h5 class="card-title">{{heroe.nombre}}</h5>
+      <p class="card-text">{{heroe.bio | slice:0:80}}...</p> <!-- pipe to truncate text-->
+      <p class="card-text"><small class="text-muted">{{heroe.aparicion}}</small></p>
+    
+    <!-- button: two different ways of doing it: -->
+    <!-- option 1: -->
+    <button (click)="verHeroe()" type="button" class="btn btn-outline-success btn-block">Ver más...</button>
+    <!-- option 2: -->
+    <!-- <a [routerLink]="['/heroe/i']" class="btn btn-outline-success btn-block"> Ver más </a> without /, it doesn't work -->
+    </div>
+  </div>
+

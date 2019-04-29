@@ -9,8 +9,8 @@ import { HeroesService } from '../../services/heroes.service';
 
 export class SearchComponent implements OnInit {
 
-  //local variable. It's an array because there can be multiple matches:
-  heroes:any[] = [];
+  // local variable. It's an array because there can be multiple matches:
+  heroes: any[] = [];
   search: string;
 
   constructor(
@@ -21,10 +21,9 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
 
     this._activatedRoute.params.subscribe( params => {
-      this.search = params['search'];
-      this.heroes = this._heroesService.buscarHeroes(params['search']);
-      console.log(this.heroes)
-    } )
+      this.search = params.search;
+      this.heroes = this._heroesService.buscarHeroes(params.search);
+    } );
   }
 
 }
